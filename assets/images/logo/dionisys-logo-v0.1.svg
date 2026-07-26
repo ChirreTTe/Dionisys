@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <g fill="none" stroke="#123A7A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Outer modular hexagon -->
+    <path d="M128 22 L202 64 L202 150"/>
+    <path d="M54 150 L54 64 L128 22"/>
+    <path d="M202 150 L166 190 L128 212"/>
+    <path d="M128 212 L90 190 L54 150"/>
+
+    <!-- Inner modular hexagon -->
+    <path d="M128 70 L166 92 L166 136"/>
+    <path d="M90 136 L90 92 L128 70"/>
+    <path d="M166 136 L148 156 L128 168"/>
+    <path d="M128 168 L108 156 L90 136"/>
+
+    <!-- Center -->
+    <polygon points="128,108 140,115 140,129 128,136 116,129 116,115"/>
+  </g>
+
+  <!-- Accent module -->
+  <path d="M202 64 L202 112 L186 128" fill="none" stroke="#1DB7C8"
+        stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

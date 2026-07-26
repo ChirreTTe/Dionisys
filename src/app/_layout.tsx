@@ -1,18 +1,28 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
-
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+import "./global.css";
+import { useFonts } from "expo-font";
+import { Slot, SplashScreen } from "expo-router";
+import { useEffect } from "react";
 
 SplashScreen.preventAutoHideAsync();
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
-  );
-}
+const RootLayout = () => {
+  const [fontsLoaded, error] = useFonts({
+    "Lora-Regular": require("../../assets/fonts/Lora-Regular.ttf"),
+    "Lora-Medium": require("../../assets/fonts/Lora-Medium.ttf"),
+    "Lora-Bold": require("../../assets/fonts/Lora-Bold.ttf"),
+  });
+
+  useEffect(() => {
+    if (error) throw error;
+
+    if (fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded, error]);
+
+  if (!fontsLoaded && !error) return null;
+
+  return <Slot />;
+};
+
+export default RootLayout;
