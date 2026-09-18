@@ -1,56 +1,150 @@
-# Welcome to your Expo app 👋
+# Dionisys
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Descripción
 
-## Get started
+Dionisys es una aplicación móvil desarrollada con React Native y Expo, orientada a la gestión y control del inventario de ambientes de formación.
 
-1. Install dependencies
+El proyecto busca digitalizar el proceso de verificación de los elementos presentes en los ambientes, permitiendo registrar el estado del inventario y las novedades encontradas durante las sesiones de formación.
 
-   ```bash
-   npm install
-   ```
+## Tecnologías
 
-2. Start the app
+* React Native
+* Expo
+* JavaScript
+* Expo Router
+* NativeWind
+* Bun
+* PostgreSQL *(en desarrollo)*
+* Docker *(entorno de desarrollo)*
 
-   ```bash
-   npx expo start
-   ```
+## Estructura del proyecto
 
-In the output, you'll find options to open the app in a
+El proyecto está organizado utilizando Expo Router y componentes reutilizables para mantener una estructura modular y facilitar el mantenimiento de la aplicación.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Entre los componentes desarrollados se encuentran:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+* `CustomLogo`
+* `CustomLogotipo`
+* `CustomAvatar`
+* `CustomTarget`
+* `CustomSeparador`
+* `CustomButton`
+* `CustomInput`
+* `CustomSelect`
 
-## Get a fresh project
+La navegación principal de la aplicación está compuesta por:
 
-When you're ready, run:
+* Inicio
+* Inventario
+* Novedades
+* Perfil
 
-```bash
-npm run reset-project
+La selección del ambiente se realiza desde la pantalla de Inicio.
+
+## Funcionalidades implementadas
+
+* Configuración inicial del proyecto con React Native y Expo.
+* Implementación de Expo Router.
+* Configuración de NativeWind.
+* Definición de identidad visual y paleta de colores.
+* Configuración de tipografías.
+* Desarrollo de componentes reutilizables.
+* Implementación de la pantalla de Inicio.
+* Selector de ambiente de trabajo.
+* Definición de ambientes de formación.
+* Estructura inicial de las secciones de Inventario, Novedades y Perfil.
+* Diseño inicial del flujo de verificación del inventario.
+* Definición del concepto de novedades.
+* Definición inicial de la arquitectura de datos.
+* Diseño conceptual del modelo relacional.
+* Planeación de PostgreSQL como sistema gestor de base de datos.
+
+## Funcionalidades en desarrollo
+
+* Implementación completa del módulo de Inventario.
+* Implementación del registro y consulta de novedades.
+* Autenticación de usuarios.
+* Gestión de usuarios, roles y permisos.
+* Conexión con la base de datos PostgreSQL.
+* Desarrollo de API/backend.
+* Persistencia de información.
+* Gestión de ambientes.
+* Gestión de fichas y grupos de formación.
+* Registro de instructores.
+* Asociación entre instructores, ambientes y sesiones.
+* Registro del estado de los elementos del inventario.
+* Implementación completa del flujo de verificación del ambiente.
+* Pruebas funcionales e integración.
+
+## Modelo funcional
+
+El flujo principal planteado para Dionisys es:
+
+```text
+Instructor
+    │
+    ▼
+Inicio
+    │
+    ▼
+Seleccionar ambiente
+    │
+    ▼
+Consultar inventario
+    │
+    ▼
+Verificar elementos
+    │
+    ├───────────────┐
+    │               │
+ Coincide       Diferencia
+    │               │
+    ▼               ▼
+Confirmar       Registrar
+inventario      novedad
+    │               │
+    └───────┬───────┘
+            ▼
+        Historial
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Estado del proyecto
 
-### Other setup steps
+**En desarrollo**
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+Dionisys cuenta actualmente con una base inicial de interfaz móvil, navegación, componentes reutilizables, definición funcional y diseño preliminar de la arquitectura de datos.
 
-## Learn more
+El siguiente objetivo principal es consolidar la base de datos y posteriormente conectar la aplicación móvil con los datos reales del sistema.
 
-To learn more about developing your project with Expo, look at the following resources:
+## Instalación
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+bun create expo@latest
+name
+cd name
+code . (VS)
 
-## Join the community
+```
 
-Join our community of developers creating universal apps.
+Para iniciar el proyecto:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+bun start
+bun start -c
+```
+
+
+Para configurar mi entorno de acuerdo a la documentacion de NativeWind
+
+https://www.nativewind.dev/docs/getting-started/installation
+
+```bash
+bunx expo install nativewind@4.2.7 react-native-reanimated react-native-safe-area-context
+bunx expo install --dev tailwindcss@^3.4.17 prettier-plugin-tailwindcss@^0.5.11 babel-preset-expo
+
+npx tailwindcss init
+tailwind.config.js
+
+bunx expo customize
+
+```
